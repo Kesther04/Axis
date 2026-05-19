@@ -1,8 +1,16 @@
+import Explore from "../components/Explore";
+import Hero from "../components/Hero";
+import Navbar from "../components/Navbar";
 
 export default function Home(){
     return (
         <>
-        <h1>Home: Welcome to Axis</h1>
+            <Navbar/>
+            <main>
+                <Hero/>
+                <Explore/>
+            </main>
+            
         </>
     )
 }
