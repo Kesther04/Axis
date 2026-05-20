@@ -15,9 +15,9 @@ export default function Navbar() {
 
             {/* Desktop Nav */}
             <div className="hidden md:flex gap-8 lg:gap-10 text-base lg:text-lg lg:mr-20 items-center">
-                <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-                <Link to="/" className="hover:text-primary transition-colors">Explore</Link>
-                <Link to="/" className="hover:text-primary transition-colors">About</Link>
+                <Link to="/#home" className="hover:text-primary transition-colors">Home</Link>
+                <Link to="/#explore" className="hover:text-primary transition-colors">Explore</Link>
+                <Link to="/#about" className="hover:text-primary transition-colors">About</Link>
                 <Link
                     to="/"
                     className="border border-gray-200 px-4 py-2 rounded-full bg-primary font-bold text-white text-base lg:text-lg hover:opacity-90 transition-opacity"
@@ -43,9 +43,9 @@ export default function Navbar() {
             {/* Mobile Menu */}
             {menuOpen && (
                 <div className="absolute top-full left-0 w-full bg-white border-t border-gray-200 shadow-md flex flex-col px-6 py-5 gap-5 md:hidden z-50">
-                    <Link to="/" className="text-base font-medium hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>Home</Link>
-                    <Link to="/" className="text-base font-medium hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>Explore</Link>
-                    <Link to="/" className="text-base font-medium hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>About</Link>
+                    <Link to="/#home" className="text-base font-medium hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>Home</Link>
+                    <Link to="/#explore" className="text-base font-medium hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>Explore</Link>
+                    <Link to="/#about" className="text-base font-medium hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>About</Link>
                     <Link
                         to="/"
                         className="bg-primary text-white font-bold text-base px-5 py-2.5 rounded-full w-fit hover:opacity-90 transition-opacity"
