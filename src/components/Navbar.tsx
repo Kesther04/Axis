@@ -27,7 +27,7 @@ export default function Navbar() {
     }
 
     return (
-        <section className="fixed top-0 flex flex-row items-center justify-between px-6 md:px-16 lg:px-28 py-2 bg-white border-b border-gray-200 w-full z-50">
+        <section className="fixed top-0 flex flex-row items-center justify-between px-6 md:px-16 lg:px-28 py-2 bg-white border-b border-gray-200 w-full z-50 overflow-hidden">
 
             {/* Logo */}
             <div className="logo">
