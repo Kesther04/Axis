@@ -1,12 +1,33 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate, useLocation } from "react-router-dom"
 import logo from "../assets/images/logo.png"
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+        e.preventDefault()
+        setMenuOpen(false)
+
+        const tryScroll = () => {
+            const el = document.getElementById(id)
+            if (el) {
+                el.scrollIntoView({ behavior: "smooth" })
+            }
+        }
+
+        if (location.pathname !== "/") {
+            navigate("/")
+            setTimeout(tryScroll, 100)
+        } else {
+            tryScroll()
+        }
+    }
 
     return (
-        <section className="fixed top-0 flex flex-row items-center justify-between px-6 md:px-16 lg:px-28 py-2 bg-white border-b border-gray-200 w-full z-50 ">
+        <section className="fixed top-0 flex flex-row items-center justify-between px-6 md:px-16 lg:px-28 py-2 bg-white border-b border-gray-200 w-full z-50">
 
             {/* Logo */}
             <div className="logo">
@@ -15,11 +36,11 @@ export default function Navbar() {
 
             {/* Desktop Nav */}
             <div className="hidden md:flex gap-8 lg:gap-10 text-base lg:text-lg lg:mr-20 items-center">
-                <Link to="/#home" className="hover:text-primary transition-colors">Home</Link>
-                <Link to="/#explore" className="hover:text-primary transition-colors">Explore</Link>
-                <Link to="/#about" className="hover:text-primary transition-colors">About</Link>
+                <Link to="/#home" onClick={(e) => handleNavClick(e, "home")} className="hover:text-primary transition-colors">Home</Link>
+                <Link to="/#explore" onClick={(e) => handleNavClick(e, "explore")} className="hover:text-primary transition-colors">Explore</Link>
+                <Link to="/#about" onClick={(e) => handleNavClick(e, "about")} className="hover:text-primary transition-colors">About</Link>
                 <Link
-                    to="/"
+                    to="/signin"
                     className="border border-gray-200 px-4 py-2 rounded-full bg-primary font-bold text-white text-base lg:text-lg hover:opacity-90 transition-opacity"
                 >
                     Sign In
@@ -43,13 +64,13 @@ export default function Navbar() {
             {/* Mobile Menu */}
             {menuOpen && (
                 <div className="absolute top-full left-0 w-full bg-white border-t border-gray-200 shadow-md flex flex-col px-6 py-5 gap-5 md:hidden z-50">
-                    <Link to="/#home" className="text-base font-medium hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>Home</Link>
-                    <Link to="/#explore" className="text-base font-medium hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>Explore</Link>
-                    <Link to="/#about" className="text-base font-medium hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>About</Link>
+                    <Link to="/#home" onClick={(e) => handleNavClick(e, "home")} className="text-base font-medium hover:text-primary transition-colors">Home</Link>
+                    <Link to="/#explore" onClick={(e) => handleNavClick(e, "explore")} className="text-base font-medium hover:text-primary transition-colors">Explore</Link>
+                    <Link to="/#about" onClick={(e) => handleNavClick(e, "about")} className="text-base font-medium hover:text-primary transition-colors">About</Link>
                     <Link
-                        to="/"
-                        className="bg-primary text-white font-bold text-base px-5 py-2.5 rounded-full w-fit hover:opacity-90 transition-opacity"
+                        to="/signin"
                         onClick={() => setMenuOpen(false)}
+                        className="bg-primary text-white font-bold text-base px-5 py-2.5 rounded-full w-fit hover:opacity-90 transition-opacity"
                     >
                         Sign In
                     </Link>

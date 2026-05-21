@@ -41,23 +41,20 @@ export default function Explore() {
                 <div className="w-full h-full flex flex-col md:flex-row justify-between items-center gap-20 md:gap-10 my-10">
                     {
                         locations.map((location, index) => (
-                        <div className=" w-full md:w-1/4 h-auto md:h-[500px] relative " key={index} >
-                            <img src={location.img} alt={location.title} className="w-full h-full rounded-xl relative" />
-                            <div className="absolute bg-white rounded-3xl p-5 -bottom-10 left-0 md:left-[30px] text-left w-60 md:w-64">
-                                <h1 className="text-black font-bold text-xl md:text-3xl">{location.title}</h1>
-                                <p className="text-black font-medium text-sm md:text-lg">{location.destinations} destinations</p>
-                                <p className="text-black font-medium text-sm md:text-lg">
-                                    {Array.from({ length: location.stars }).map((_, index) => (
-                                        <span key={index}>⭐</span>
-                                    ))}
-                                </p> 
+                            <div className=" w-full md:w-1/4 h-auto md:h-[500px] relative " key={index} >
+                                <img src={location.img} alt={location.title} className="w-full h-full rounded-xl relative" />
+                                <div className="absolute bg-white rounded-3xl p-5 -bottom-10 left-0 md:left-[30px] text-left w-60 md:w-64">
+                                    <h1 className="text-black font-bold text-xl md:text-3xl">{location.title}</h1>
+                                    <p className="text-black font-medium text-sm md:text-lg">{location.destinations} destinations</p>
+                                    <p className="text-black font-medium text-sm md:text-lg">
+                                        {Array.from({ length: location.stars }).map((_, index) => (
+                                            <span key={index}>⭐</span>
+                                        ))}
+                                    </p> 
+                                </div>
                             </div>
-                        </div>
                         ))
                     }
-                    
-                    
-                    
                 </div>
 
                 <p className="text-white text-lg mt-5 cursor-pointer hover:text-orange-500 transition-colors">Explore all routes <span className="text-orange-500">→</span></p>
