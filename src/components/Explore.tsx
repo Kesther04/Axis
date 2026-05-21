@@ -31,10 +31,10 @@ export default function Explore() {
         }
     ]
     return (
-        <section  id="explore" className="h-auto mb-10 md:-mt-60">
+        <section  id="explore" className="h-auto mb-10 md:-mt-60 w-full">
             <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 490" xmlns="http://www.w3.org/2000/svg" className="transition duration-300 ease-in-out delay-150"><path d="M 0,500 L 0,187 C 87.61722488038276,164.8181818181818 175.23444976076553,142.63636363636365 285,163 C 394.76555023923447,183.36363636363635 526.6794258373205,246.2727272727273 628,252 C 729.3205741626795,257.7272727272727 800.0478468899523,206.27272727272728 889,177 C 977.9521531100477,147.72727272727272 1085.1291866028707,140.63636363636363 1180,146 C 1274.8708133971293,151.36363636363637 1357.4354066985647,169.1818181818182 1440,187 L 1440,500 L 0,500 Z" stroke="none" stroke-width="0" fill="#0d2b4e" fill-opacity="1" className="transition-all duration-300 ease-in-out delay-150 path-0"></path></svg>
            
-            <div className="w-full h-auto flex flex-col bg-primary p-5 md:p-20  items-center justify-center font-bold text-center top-90 gap-5">
+            <div className="w-full h-auto flex flex-col bg-primary px-5 md:px-20 py-20   items-center justify-center font-bold text-center top-90 gap-5">
                 <h1 className="text-white text-2xl md:text-3xl">Popular routes for students</h1>
                 <p className="text-white text-lg">Top destination students love to travel</p>
 

@@ -24,7 +24,7 @@ export default function About () {
     ]
     return (
 
-        <section id="about" className="p-2 md:p-30">
+        <section id="about" className="w-full p-2 md:p-30">
             {/* about us */}
             <section className="w-full h-full ">
                 <h1 className="text-center text-3xl font-bold text-primary">About Us</h1>
@@ -46,7 +46,7 @@ export default function About () {
             </section>
             
             {/* student feedback */}
-            <section className="w-full h-full flex flex-col my-20 gap-5">
+            {/* <section className="w-full h-full flex flex-col my-20 gap-5">
                 <h1 className="text-center text-orange-500 font-bold text-xl">STUDENT VOICES</h1>
                 <p className="text-center text-primary text-3xl font-bold">What Students are Saying</p>
                 <div className="flex flex-col md:flex-row justify-around gap-10">
@@ -71,10 +71,10 @@ export default function About () {
                         </div>
                     ))}           
                 </div>
-            </section>
+            </section> */}
 
             {/* join now */}
-            <section className="w-full bg-primary h-full md:h-[300px] rounded-2xl my-50 flex flex-col md:flex-row p-10">
+            <section className="w-full bg-primary h-full md:h-[300px] rounded-2xl  flex flex-col md:flex-row p-10">
                 <div className="w-full md:w-4/5 text-white flex flex-col justify-center gap-5">
                     <h1 className=" text-2xl md:text-5xl font-bold">Get travel updates & Exclusive offers</h1>
                     <p className=" text-lg md:text-2xl">Join students traveling smarter with Axis</p>
