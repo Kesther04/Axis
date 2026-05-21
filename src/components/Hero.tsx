@@ -9,7 +9,7 @@ export default function Hero(){
                 <h1 className="text-5xl font-extrabold text-primary">Travel smarter.</h1>
                 <h1 className="text-5xl font-extrabold text-primary">Arrive <span className="text-orange-500">better.</span></h1>
                 
-                <p className="text-xl text-wrap text-gray-500 pt-5">Axis helps student book safe, reliable and affordable trips between school and home</p> 
+                <p className="md:text-xl text-wrap text-gray-500 pt-5">Axis helps student book safe, reliable and affordable trips between school and home</p> 
 
                 <Link to="/waitlist" className="bg-primary w-40 py-3 rounded-full text-white font-bold text-center hover:shadow hover:shadow-orange-500 transition-all cursor-pointer">
                     Book Your Trip
