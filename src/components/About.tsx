@@ -1,27 +1,27 @@
-import { User } from "lucide-react";
+// import { User } from "lucide-react";
 import aboutImg from "../assets/images/about_img.png"
 import axisMail from "../assets/images/axis_mail.png"
 export default function About () {
-    const responses = [
-        {
-            name:"Michael",
-            type:"Med",
-            description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus pariatur cumque molestiae fugit reprehenderit mollitia et nisi!",
-            rating:5
-        },
-        {
-            name:"William",
-            type:"Computer",
-            description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus pariatur cumque molestiae fugit reprehenderit mollitia et nisi!",
-            rating:4
-        },
-        {
-            name:"Mary",
-            type:"Inter Rel",
-            description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus pariatur cumque molestiae fugit reprehenderit mollitia et nisi!",
-            rating: 4
-        }
-    ]
+    // const responses = [
+    //     {
+    //         name:"Michael",
+    //         type:"Med",
+    //         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus pariatur cumque molestiae fugit reprehenderit mollitia et nisi!",
+    //         rating:5
+    //     },
+    //     {
+    //         name:"William",
+    //         type:"Computer",
+    //         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus pariatur cumque molestiae fugit reprehenderit mollitia et nisi!",
+    //         rating:4
+    //     },
+    //     {
+    //         name:"Mary",
+    //         type:"Inter Rel",
+    //         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus pariatur cumque molestiae fugit reprehenderit mollitia et nisi!",
+    //         rating: 4
+    //     }
+    // ]
     return (
 
         <section id="about" className="w-full p-2 md:p-30">
