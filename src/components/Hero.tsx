@@ -3,9 +3,9 @@ import bus from "../assets/images/busImage.png"
 
 export default function Hero(){
     return (
-        <section id="home" className="h-[1000px] w-full flex flex-col md:flex-row justify-between md:relative z-10">
+        <section id="home" className="h-[1000px] w-full flex flex-col md:flex-row justify-between md:relative z-10 px-6 md:px-16 lg:px-28">
             {/* left */}
-            <div className="flex flex-col gap-5 w-full md:w-[400px] h-[400px] px-2 md:px-32 mt-64 z-20">
+            <div className="flex flex-col gap-5 w-full md:w-[400px] h-[400px] mt-32 md:mt-64 z-20 ">
                 <h1 className="text-5xl font-extrabold text-primary">Travel smarter.</h1>
                 <h1 className="text-5xl font-extrabold text-primary">Arrive <span className="text-orange-500">better.</span></h1>
                 
