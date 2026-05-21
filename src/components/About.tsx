@@ -74,8 +74,8 @@ export default function About () {
             </section> */}
 
             {/* join now */}
-            <section className="w-full bg-primary h-full md:h-[300px] rounded-2xl  flex flex-col md:flex-row p-10">
-                <div className="w-full md:w-4/5 text-white flex flex-col justify-center gap-5">
+            <section className="w-full bg-primary h-full md:h-[300px] rounded-2xl  flex flex-col-reverse md:flex-row p-10">
+                <div className="w-full md:w-2/3 text-white flex flex-col justify-center gap-5">
                     <h1 className=" text-2xl md:text-5xl font-bold">Get travel updates & Exclusive offers</h1>
                     <p className=" text-lg md:text-2xl">Join students traveling smarter with Axis</p>
                     <div className="relative w-full md:w-[500px]">
@@ -84,8 +84,8 @@ export default function About () {
                     </div>
                 </div>
 
-                <div className="w-1/5 text-white flex flex-col justify-center">
-                    <img src={axisMail} alt="axisMail" className="w-[100px]" />
+                <div className="w-full md:w-1/3 text-white flex flex-coljustify-center">
+                    <img src={axisMail} alt="axisMail" className="w-full md:w-[450px] " />
                 </div>
             </section>
         </section>

@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom"
 import Home from "./pages/Home"
+import Waitlist from "./pages/Waitlist"
 
 function App() {
 
@@ -10,7 +11,7 @@ function App() {
     },
     {
       path:"/waitlist",
-      element:<div>signup for Axis</div>
+      element:<Waitlist/>,
     },
     {
       path:"/trip",
