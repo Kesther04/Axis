@@ -8,7 +8,7 @@ export default function Home(){
     return (
         <>
             <Navbar/>
-            <main className="bg-gray-100">
+            <main className="bg-gray-100 w-full h-auto">
                 <Hero/>
                 <Explore/>
                 <About/>
