@@ -11,7 +11,7 @@ export default function About() {
     const joinInView = useInView(joinRef, { once: true, margin: "-100px" })
 
     return (
-        <section id="about" className="w-full p-2 md:p-30">
+        <section id="about" className="w-full p-2 md:p-30 overflow-hidden">
 
             {/* About Us */}
             <section ref={aboutRef} className="w-full h-full">
