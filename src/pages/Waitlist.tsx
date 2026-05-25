@@ -2,7 +2,7 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import logo2 from "../assets/images/logo2.png"
 
-const NIGERIAN_STATES = ["Abuja", "Enugu", "Lagos"]
+const NIGERIAN_STATES = ["Port Harcourt","Abuja", "Enugu", "Lagos"]
 const TRANSPORT_TYPES = ["Bus", "Sienna"]
 
 // const fieldVariant = {
