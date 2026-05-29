@@ -44,10 +44,10 @@ export default function Explore() {
                     Top destination students love to travel
                 </motion.p>
 
-                <div className="w-full h-full flex flex-col md:flex-row justify-between items-center gap-20 md:gap-10 my-10">
+                <div className="w-full h-full flex flex-col  lg:flex-row justify-between items-center gap-20 lg:gap-10 my-10">
                     {locations.map((location, index) => (
                         <motion.div
-                            className="w-full md:w-1/4 h-auto md:h-[500px] relative"
+                            className="w-full lg:w-1/4 h-auto lg:h-[500px] relative"
                             key={index}
                             initial={{ opacity: 0, y: 40 }}
                             animate={isInView ? { opacity: 1, y: 0 } : {}}

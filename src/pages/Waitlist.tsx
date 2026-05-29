@@ -1,24 +1,20 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import logo2 from "../assets/images/logo2.png"
+import { supabase } from "../lib/supabase"
+import { useSearchParams } from "react-router-dom"
+
 
 const NIGERIAN_STATES = ["Port Harcourt","Abuja", "Enugu", "Lagos"]
 const TRANSPORT_TYPES = ["Bus", "Sienna"]
 
-// const fieldVariant = {
-//     hidden: { opacity: 0, y: 16 },
-//     visible: (i: number) => ({
-//         opacity: 1,
-//         y: 0,
-//         transition: { duration: 0.35, ease: "easeOut", delay: 0.3 + i * 0.07 }
-//     })
-// }
-
 export default function Waitlist() {
+    const [searchParams] = useSearchParams();
+
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
-        email: "",
+        email: searchParams.get('email') || '',
         phone: "",
         school: "",
         destination: "",
@@ -30,9 +26,31 @@ export default function Waitlist() {
         setFormData({ ...formData, [e.target.name]: e.target.value })
     }
 
-    const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
-        console.log(formData)
+
+        // Insert into Supabase waitlist table
+        const { data, error } = await supabase.from("waitlist").insert([formData])
+
+        if (error) {
+            console.error("Error adding to waitlist:", error)
+            alert("Failed to add to waitlist. Please try again.")
+        } else {
+            console.log("Added to waitlist:", data)
+            alert("Thanks for joining the waitlist! We'll notify you when we launch.")
+
+            // Clear form
+            setFormData({
+                firstName: "",
+                lastName: "",
+                email: "",
+                phone: "",
+                school: "",
+                destination: "",
+                transportCompany: "",
+                transportType: ""
+            })
+        }
     }
 
     return (

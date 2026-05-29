@@ -1,7 +1,8 @@
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { motion, useInView } from "framer-motion"
 import aboutImg from "../assets/images/about_img.png"
 import axisMail from "../assets/images/axis_mail.png"
+import { useNavigate } from "react-router-dom"
 
 export default function About() {
     const aboutRef = useRef(null)
@@ -9,6 +10,14 @@ export default function About() {
 
     const aboutInView = useInView(aboutRef, { once: true, margin: "-100px" })
     const joinInView = useInView(joinRef, { once: true, margin: "-100px" })
+
+    const [email, setEmail] = useState('')
+    const navigate = useNavigate()
+
+    const handleSubmit = (e: any) => {
+        e.preventDefault()
+        navigate(`/waitlist?email=${encodeURIComponent(email)}`)
+    }
 
     return (
         <section id="about" className="w-full p-2 md:p-30 overflow-hidden">
@@ -80,10 +89,14 @@ export default function About() {
                         animate={joinInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
                     >
+                        <form onSubmit={handleSubmit}>
                         <input
                             type="email"
                             placeholder="Your email here"
                             className="bg-white text-black rounded-3xl w-full py-3 px-2 md:px-10 text-xl outline-0"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
                         />
                         <motion.button
                             className="absolute right-1 md:right-10 bg-primary p-2 rounded-3xl top-1.5 w-24"
@@ -92,6 +105,7 @@ export default function About() {
                         >
                             Join Now
                         </motion.button>
+                        </form>
                     </motion.div>
                 </div>
 

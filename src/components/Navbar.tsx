@@ -78,10 +78,10 @@ export default function Navbar() {
                     whileTap={{ scale: 0.97 }}
                 >
                     <Link
-                        to="/signin"
+                        to="/waitlist"
                         className=" px-4 py-2 rounded-full bg-primary font-bold text-white text-base lg:text-lg hover:opacity-90 transition-opacity outline-0"
                     >
-                        Sign In
+                        Sign Up
                     </Link>
                 </motion.div>
             </motion.div>

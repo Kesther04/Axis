@@ -36,7 +36,7 @@ export default function Footer() {
 
             <footer
                 ref={footerRef}
-                className="w-full bg-primary text-white flex flex-col md:flex-row justify-around p-15 md:p-20 gap-10 md:gap-5"
+                className="w-full bg-primary text-white flex flex-col lg:flex-row justify-around p-15 md:p-20 gap-10 md:gap-5"
             >
                 {/* Brand column */}
                 <motion.div
