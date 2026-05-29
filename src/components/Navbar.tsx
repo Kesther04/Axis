@@ -156,11 +156,11 @@ export default function Navbar() {
                             whileTap={{ scale: 0.97 }}
                         >
                             <Link
-                                to="/signin"
+                                to="/waitlist"
                                 onClick={() => setMenuOpen(false)}
                                 className="bg-primary text-white font-bold text-base px-5 py-2.5 rounded-full w-fit hover:opacity-90 transition-opacity inline-block"
                             >
-                                Sign In
+                                Sign Up
                             </Link>
                         </motion.div>
                     </motion.div>
