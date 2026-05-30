@@ -6,11 +6,11 @@ import { useSearchParams } from "react-router-dom"
 
 
 const NIGERIAN_STATES = ["Port Harcourt","Abuja", "Enugu", "Lagos"]
-const TRANSPORT_TYPES = ["Bus", "Sienna"]
+const TRANSPORT_TYPES = ["bus", "train", "flight", "shared ride", "other"]
 
 export default function Waitlist() {
     const [searchParams] = useSearchParams();
-
+    const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
@@ -29,14 +29,29 @@ export default function Waitlist() {
     const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
 
+        setLoading(true);
         // Insert into Supabase waitlist table
-        const { data, error } = await supabase.from("waitlist").insert([formData])
+        const { data, error } = await supabase.from("axisconnect_waitlist").insert([
+            {   
+                first_name:formData.firstName,
+                last_name:formData.lastName,
+                email:formData.email,
+                phone:formData.phone,
+                school:formData.school,
+                destination:formData.destination,
+                transport_company:formData.transportCompany,
+                transport_type: formData.transportType.replace(" ","_")
+            }
+        ])
 
         if (error) {
             console.error("Error adding to waitlist:", error)
+            setLoading(false);
             alert("Failed to add to waitlist. Please try again.")
+
         } else {
             console.log("Added to waitlist:", data)
+            setLoading(false);
             alert("Thanks for joining the waitlist! We'll notify you when we launch.")
 
             // Clear form
@@ -238,7 +253,7 @@ export default function Waitlist() {
                         whileHover={{ opacity: 0.92, scale: 1.01 }}
                         whileTap={{ scale: 0.98 }}
                     >
-                        Join the waitlist
+                        {!loading ? "Join the waitlist" : "Processing..."}
                     </motion.button>
 
                     {/* Privacy note */}
