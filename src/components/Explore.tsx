@@ -1,7 +1,7 @@
-import abuja from "../assets/images/abuja.png"
-import lagos from "../assets/images/lagos.png"
-import portH from "../assets/images/portH.png"
-import enugu from "../assets/images/enugu.png"
+// import abuja from "../assets/images/abuja.png"
+// import lagos from "../assets/images/lagos.png"
+// import portH from "../assets/images/portH.png"
+// import enugu from "../assets/images/enugu.png"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 
@@ -10,10 +10,10 @@ export default function Explore() {
     const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
     const locations = [
-        { img: abuja, title: "Abuja", destinations: 56, stars: 5 },
-        { img: lagos, title: "Lagos", destinations: 56, stars: 5 },
-        { img: portH, title: "Port Harcout", destinations: 24, stars: 4 },
-        { img: enugu, title: "Enugu", destinations: 37, stars: 4 },
+        { img: "https://res.cloudinary.com/dw0y0pik4/image/upload/abuja_zj6yse", title: "Abuja", destinations: 56, stars: 5 },
+        { img: "https://res.cloudinary.com/dw0y0pik4/image/upload/lagos_oruvkg", title: "Lagos", destinations: 56, stars: 5 },
+        { img: "https://res.cloudinary.com/dw0y0pik4/image/upload/portH_toddul", title: "Port Harcout", destinations: 24, stars: 4 },
+        { img: "https://res.cloudinary.com/dw0y0pik4/image/upload/enugu_go4vjv", title: "Enugu", destinations: 37, stars: 4 },
     ]
 
     return (

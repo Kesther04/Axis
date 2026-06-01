@@ -2,7 +2,7 @@ import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { Link } from "react-router-dom"
 import { FaInstagram, FaTwitter } from "react-icons/fa"
-import logo from "../assets/images/logo2.png"
+// import logo from "../assets/images/logo2.png"
 
 export default function Footer() {
     const footerRef = useRef(null)
@@ -23,7 +23,7 @@ export default function Footer() {
         },
         {
             heading: "Contact Us",
-            links: ["0912345678", "support@amazingtaiwan.com"],
+            links: ["07033620648", "support@axisconnect.com.ng"],
         },
     ]
 
@@ -45,7 +45,10 @@ export default function Footer() {
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.5, ease: "easeOut" }}
                 >
-                    <img src={logo} alt="logo" className="w-32 md:w-36" />
+                    <img 
+                        // src={logo} 
+                        src="https://res.cloudinary.com/dw0y0pik4/image/upload/logo2_pbqb3y"
+                        alt="logo" className="w-32 md:w-36" />
                     <p className="text-white text-lg font-bold text-center">Travel. Connect. Belong.</p>
                     <p className="text-white text-sm py-3">The smarter way for students to travel across Nigeria</p>
                     <div className="flex gap-3 items-center justify-center">

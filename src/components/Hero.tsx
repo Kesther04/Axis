@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import bus from "../assets/images/busImage.png"
+// import bus from "../assets/images/busImage.png"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 
@@ -67,7 +67,8 @@ export default function Hero() {
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
             >
-                <img src={bus} alt="bus" className="w-full h-[600px] md:h-[900px]" />
+                {/* <img src={bus} alt="bus" className="w-full h-[600px] md:h-[900px]" /> */}
+                <img src="https://res.cloudinary.com/dw0y0pik4/image/upload/busImage_aki8mg" alt="bus" className="w-full h-[600px] md:h-[900px]" />
             </motion.div>
         </section>
     )

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link, useNavigate, useLocation } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
-import logo from "../assets/images/logo.png"
+// import logo from "../assets/images/logo.png"
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -43,7 +43,12 @@ export default function Navbar() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
             >
-                <img src={logo} alt="logo" className="w-24 md:w-32" />
+                <img
+                    // src={logo}
+                    src="https://res.cloudinary.com/dw0y0pik4/image/upload/logo_xxj5bf"
+                    alt="logo" 
+                    className="w-24 md:w-32" 
+                />
             </motion.div>
 
             {/* Desktop Nav */}
