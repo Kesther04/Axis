@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
-// import logo2 from "../assets/images/logo2.png"
+import logo2 from "../assets/images/logo2.png"
 import { supabase } from "../lib/supabase"
 import { useSearchParams } from "react-router-dom"
 
@@ -77,10 +77,11 @@ export default function Waitlist() {
                 transition={{ duration: 0.5, ease: "easeOut" }}
             >
                 <motion.img
-                    // src={logo2}
-                    src="https://res.cloudinary.com/dw0y0pik4/image/upload/logo2_pbqb3y"
+                    src={logo2}
+                    // src="https://res.cloudinary.com/dw0y0pik4/image/upload/logo2_pbqb3y"
                     alt="logo"
                     className="rounded-full w-32 py-2"
+                    loading="eager"
                     initial={{ opacity: 0, x: -16 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}

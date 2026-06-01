@@ -1,7 +1,7 @@
 import { useRef, useState } from "react"
 import { motion, useInView } from "framer-motion"
-// import aboutImg from "../assets/images/about_img.png"
-// import axisMail from "../assets/images/axis_mail.png"
+import aboutImg from "../assets/images/about_img.png"
+import axisMail from "../assets/images/axis_mail.png"
 import { useNavigate } from "react-router-dom"
 
 export default function About() {
@@ -58,8 +58,8 @@ export default function About() {
                         transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
                     >
                         <img 
-                        // src={aboutImg}
-                        src="https://res.cloudinary.com/dw0y0pik4/image/upload/about_img_bnjc9q" 
+                        src={aboutImg}
+                        // src="https://res.cloudinary.com/dw0y0pik4/image/upload/about_img_bnjc9q" 
                         alt="about" className="w-full h-[400px] md:h-[700px]" />
                     </motion.div>
                 </div>
@@ -119,10 +119,10 @@ export default function About() {
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
                 >
                     <img 
-                        // src={axisMail}
-                        src="https://res.cloudinary.com/dw0y0pik4/image/upload/axis_mail_c6wx90" 
+                        src={axisMail}
+                        // src="https://res.cloudinary.com/dw0y0pik4/image/upload/axis_mail_c6wx90" 
                         alt="axisMail" 
-                        className="w-full md:w-[450px]" />
+                        className="w-full md:w-[450px]" loading="eager" />
                 </motion.div>
             </section>
 

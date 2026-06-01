@@ -1,7 +1,7 @@
-// import abuja from "../assets/images/abuja.png"
-// import lagos from "../assets/images/lagos.png"
-// import portH from "../assets/images/portH.png"
-// import enugu from "../assets/images/enugu.png"
+import abuja from "../assets/images/abuja.png"
+import lagos from "../assets/images/lagos.png"
+import portH from "../assets/images/portH.png"
+import enugu from "../assets/images/enugu.png"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 
@@ -10,10 +10,22 @@ export default function Explore() {
     const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
     const locations = [
-        { img: "https://res.cloudinary.com/dw0y0pik4/image/upload/abuja_zj6yse", title: "Abuja", destinations: 56, stars: 5 },
-        { img: "https://res.cloudinary.com/dw0y0pik4/image/upload/lagos_oruvkg", title: "Lagos", destinations: 56, stars: 5 },
-        { img: "https://res.cloudinary.com/dw0y0pik4/image/upload/portH_toddul", title: "Port Harcout", destinations: 24, stars: 4 },
-        { img: "https://res.cloudinary.com/dw0y0pik4/image/upload/enugu_go4vjv", title: "Enugu", destinations: 37, stars: 4 },
+        { 
+            // img: "https://res.cloudinary.com/dw0y0pik4/image/upload/abuja_zj6yse", 
+            img: abuja,
+            title: "Abuja", destinations: 56, stars: 5 },
+        { 
+            // img: "https://res.cloudinary.com/dw0y0pik4/image/upload/lagos_oruvkg", 
+            img: lagos,
+            title: "Lagos", destinations: 56, stars: 5 },
+        { 
+            // img: "https://res.cloudinary.com/dw0y0pik4/image/upload/portH_toddul", 
+            img: portH,
+            title: "Port Harcout", destinations: 24, stars: 4 },
+        { 
+            // img: "https://res.cloudinary.com/dw0y0pik4/image/upload/enugu_go4vjv", 
+            img: enugu,
+            title: "Enugu", destinations: 37, stars: 4 },
     ]
 
     return (
@@ -54,7 +66,7 @@ export default function Explore() {
                             transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 + index * 0.1 }}
                             whileHover={{ y: -6, transition: { duration: 0.25 } }}
                         >
-                            <img src={location.img} alt={location.title} className="w-full h-full rounded-xl relative" />
+                            <img src={location.img} alt={location.title} className="w-full h-full rounded-xl relative" loading="eager" />
                             <motion.div
                                 className="absolute bg-white rounded-3xl p-5 -bottom-10 left-0 md:left-[30px] text-left w-60 md:w-64"
                                 initial={{ opacity: 0, y: 12 }}
