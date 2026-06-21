@@ -1,12 +1,12 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
-import logo2 from "../assets/images/logo2.png"
+import logo2 from "../assets/images/logo3.png"
 import { supabase } from "../lib/supabase"
 import { useSearchParams } from "react-router-dom"
 
 
-const NIGERIAN_STATES = ["Port Harcourt","Abuja", "Enugu", "Lagos"]
-const TRANSPORT_TYPES = ["bus", "train", "flight", "shared ride", "other"]
+const NIGERIAN_STATES = ["Port Harcourt","Abuja", "Lagos"]
+const TRANSPORT_TYPES = ["bus", "sienna", "other"]
 
 export default function Waitlist() {
     const [searchParams] = useSearchParams();
@@ -102,7 +102,7 @@ export default function Waitlist() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
                 >
-                    Be the first to know when Axis Connect launches in your area.
+                    Be the first to know when Axis Connect launches.
                 </motion.p>
 
                 {/* Form */}

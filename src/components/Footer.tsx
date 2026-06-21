@@ -1,29 +1,74 @@
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { Link } from "react-router-dom"
+import { Link, useNavigate, useLocation } from "react-router-dom"
 import { FaInstagram, FaTwitter } from "react-icons/fa"
-import logo from "../assets/images/logo2.png"
+import logo from "../assets/images/logo3.png"
 
 export default function Footer() {
     const footerRef = useRef(null)
     const isInView = useInView(footerRef, { once: true, margin: "-80px" })
+    const navigate = useNavigate()
+    const location = useLocation()
 
+    // Mirrors Navbar's handleNavClick: "About" is an in-page section on
+    // Home, not its own route, so it needs to scroll-into-view rather than
+    // just navigate. Works whether you're already on "/" or coming from
+    // another page like /coming-soon.
+    const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+        e.preventDefault()
+
+        const tryScroll = () => {
+            const el = document.getElementById(id)
+            if (el) {
+                el.scrollIntoView({ behavior: "smooth" })
+            }
+        }
+
+        if (location.pathname !== "/") {
+            navigate("/")
+            setTimeout(tryScroll, 100)
+        } else {
+            tryScroll()
+        }
+    }
+
+    // Only Home is live right now. About scrolls to the in-page #about
+    // section, same as Navbar. Every other page routes to /coming-soon
+    // until it's actually built — swap the `to` value here once a page ships.
     const columns = [
         {
             heading: "Menu",
-            links: ["Home", "About", "Blog", "Reviews", "Community"],
+            links: [
+                { label: "Home", to: "/" },
+                { label: "About", to: "/#about", sectionId: "about" },
+                { label: "Blog", to: "/coming-soon" },
+                { label: "Reviews", to: "/coming-soon" },
+                { label: "Community", to: "/coming-soon" },
+            ],
         },
         {
             heading: "Company",
-            links: ["Terms & Conditions", "Privacy Policy", "Careers"],
+            links: [
+                { label: "Terms & Conditions", to: "/coming-soon" },
+                { label: "Privacy Policy", to: "/coming-soon" },
+                { label: "Careers", to: "/coming-soon" },
+            ],
         },
         {
             heading: "Support",
-            links: ["Help Center", "Safety", "Contact Us", "FAQ"],
+            links: [
+                { label: "Help Center", to: "/coming-soon" },
+                { label: "Safety", to: "/coming-soon" },
+                { label: "Contact Us", to: "/coming-soon" },
+                { label: "FAQ", to: "/coming-soon" },
+            ],
         },
         {
             heading: "Contact Us",
-            links: ["07033620648", "support@axisconnect.com.ng"],
+            links: [
+                { label: "07033620648", to: "tel:+2347033620648", external: true },
+                { label: "support@axisconnect.com.ng", to: "mailto:support@axisconnect.com.ng", external: true },
+            ],
         },
     ]
 
@@ -49,22 +94,26 @@ export default function Footer() {
                         src={logo} 
                         // src="https://res.cloudinary.com/dw0y0pik4/image/upload/logo2_pbqb3y"
                         alt="logo" className="w-32 md:w-36" loading="eager" />
-                    <p className="text-white text-lg font-bold text-center">Travel. Connect. Belong.</p>
-                    <p className="text-white text-sm py-3">The smarter way for students to travel across Nigeria</p>
+                    <p className="text-white text-lg font-bold text-center">Plan. Book. Explore.</p>
+                    <p className="text-white text-sm py-3 text-center">The smarter way for students to travel across Nigeria</p>
                     <div className="flex gap-3 items-center justify-center">
                         <motion.span
                             className="hover:text-orange-500 transition-all duration-300 ease-in-out cursor-pointer"
                             whileHover={{ scale: 1.2, rotate: 5 }}
                             whileTap={{ scale: 0.9 }}
                         >
-                            <FaInstagram size={25} className="text-white" />
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="AxisConnect on Instagram">
+                                <FaInstagram size={25} className="text-white" />
+                            </a>
                         </motion.span>
                         <motion.span
                             className="hover:text-orange-500 transition-all duration-300 ease-in-out cursor-pointer"
                             whileHover={{ scale: 1.2, rotate: -5 }}
                             whileTap={{ scale: 0.9 }}
                         >
-                            <FaTwitter size={25} className="text-white" />
+                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="AxisConnect on Twitter">
+                                <FaTwitter size={25} className="text-white" />
+                            </a>
                         </motion.span>
                     </div>
                 </motion.div>
@@ -79,16 +128,30 @@ export default function Footer() {
                         transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 + colIndex * 0.09 }}
                     >
                         <h1 className="text-xl font-bold mb-3">{col.heading}</h1>
-                        {col.links.map((label, linkIndex) => (
+                        {col.links.map((link, linkIndex) => (
                             <motion.div
-                                key={label}
+                                key={link.label}
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                                 transition={{ duration: 0.3, ease: "easeOut", delay: 0.2 + colIndex * 0.09 + linkIndex * 0.05 }}
                             >
-                                <Link to="/" className="hover:text-orange-500 transition-colors duration-200">
-                                    {label}
-                                </Link>
+                                {link.external ? (
+                                    <a href={link.to} className="hover:text-orange-500 transition-colors duration-200">
+                                        {link.label}
+                                    </a>
+                                ) : link.sectionId ? (
+                                    <Link
+                                        to={link.to}
+                                        onClick={(e) => handleSectionClick(e, link.sectionId!)}
+                                        className="hover:text-orange-500 transition-colors duration-200"
+                                    >
+                                        {link.label}
+                                    </Link>
+                                ) : (
+                                    <Link to={link.to} className="hover:text-orange-500 transition-colors duration-200">
+                                        {link.label}
+                                    </Link>
+                                )}
                             </motion.div>
                         ))}
                     </motion.div>

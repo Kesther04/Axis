@@ -34,11 +34,11 @@ export default function About() {
                 </motion.h1>
 
                 <div className="flex flex-col md:flex-row">
-                    <div className="text-xl md:text-2xl w-full md:w-1/2 h-auto md:h-[300px] gap-20 flex flex-col py-10">
+                    <div className="text-xl md:text-2xl w-full md:w-1/2 h-auto md:h-[420px] gap-16 flex flex-col py-10">
                         {[
-                            <><span className="text-primary font-bold">Axis</span> is a student travel platform that makes booking trips between school and home simple and safe.</>,
-                            <>We focus on comfort, affordability, and reliable transport so students can travel without stress.</>,
-                            <>Axis helps students across Nigeria move easily and stay connected.</>
+                            <><span className="text-primary font-bold">Axis</span> is a student travel platform built around one trip every student knows too well: the run between school and home. We make booking that trip simple, so you spend less time figuring out transport and more time actually getting there.</>,
+                            <>Long queues, unreliable buses, and last-minute price hikes shouldn't be part of getting home. Axis is built around comfort, fair pricing, and transport you can actually count on, so every trip feels less like a gamble and more like a plan.</>,
+                            <>Whether you're heading home for the holidays or back to campus for resumption, Axis is working to make that journey easier for students across Nigeria, one route at a time.</>
                         ].map((text, i) => (
                             <motion.p
                                 key={i}

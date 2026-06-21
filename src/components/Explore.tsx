@@ -22,10 +22,10 @@ export default function Explore() {
             // img: "https://res.cloudinary.com/dw0y0pik4/image/upload/portH_toddul", 
             img: portH,
             title: "Port Harcout", destinations: 24, stars: 4 },
-        { 
-            // img: "https://res.cloudinary.com/dw0y0pik4/image/upload/enugu_go4vjv", 
-            img: enugu,
-            title: "Enugu", destinations: 37, stars: 4 },
+        // { 
+        //     // img: "https://res.cloudinary.com/dw0y0pik4/image/upload/enugu_go4vjv", 
+        //     img: enugu,
+        //     title: "Enugu", destinations: 37, stars: 4 },
     ]
 
     return (
@@ -74,12 +74,12 @@ export default function Explore() {
                                 transition={{ duration: 0.4, ease: "easeOut", delay: 0.35 + index * 0.1 }}
                             >
                                 <h1 className="text-black font-bold text-xl md:text-3xl">{location.title}</h1>
-                                <p className="text-black font-medium text-sm md:text-lg">{location.destinations} destinations</p>
-                                <p className="text-black font-medium text-sm md:text-lg">
+                                {/* <p className="text-black font-medium text-sm md:text-lg">{location.destinations} destinations</p> */}
+                                {/* <p className="text-black font-medium text-sm md:text-lg">
                                     {Array.from({ length: location.stars }).map((_, i) => (
                                         <span key={i}>⭐</span>
                                     ))}
-                                </p>
+                                </p> */}
                             </motion.div>
                         </motion.div>
                     ))}
