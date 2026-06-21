@@ -10,6 +10,18 @@ export default function Footer() {
     const navigate = useNavigate()
     const location = useLocation()
 
+    // Explicit shape shared by every link object. Without this, TS infers a
+    // separate type per links array (since "external" only appears in one
+    // array and "sectionId" only in another), and accessing link.external or
+    // link.sectionId elsewhere becomes a type error under strict mode —
+    // exactly the kind of thing that fails a Vercel build but not local dev.
+    type FooterLink = {
+        label: string
+        to: string
+        sectionId?: string
+        external?: boolean
+    }
+
     // Mirrors Navbar's handleNavClick: "About" is an in-page section on
     // Home, not its own route, so it needs to scroll-into-view rather than
     // just navigate. Works whether you're already on "/" or coming from
@@ -35,7 +47,7 @@ export default function Footer() {
     // Only Home is live right now. About scrolls to the in-page #about
     // section, same as Navbar. Every other page routes to /coming-soon
     // until it's actually built — swap the `to` value here once a page ships.
-    const columns = [
+    const columns: { heading: string; links: FooterLink[] }[] = [
         {
             heading: "Menu",
             links: [
@@ -95,7 +107,7 @@ export default function Footer() {
                         // src="https://res.cloudinary.com/dw0y0pik4/image/upload/logo2_pbqb3y"
                         alt="logo" className="w-32 md:w-36" loading="eager" />
                     <p className="text-white text-lg font-bold text-center">Plan. Book. Explore.</p>
-                    <p className="text-white text-sm py-3 text-center">The smarter way for students to travel across Nigeria</p>
+                    <p className="text-white text-sm py-3">The smarter way for students to travel across Nigeria</p>
                     <div className="flex gap-3 items-center justify-center">
                         <motion.span
                             className="hover:text-orange-500 transition-all duration-300 ease-in-out cursor-pointer"
@@ -142,7 +154,7 @@ export default function Footer() {
                                 ) : link.sectionId ? (
                                     <Link
                                         to={link.to}
-                                        onClick={(e) => handleSectionClick(e, link.sectionId!)}
+                                        onClick={(e) => handleSectionClick(e, link.sectionId as string)}
                                         className="hover:text-orange-500 transition-colors duration-200"
                                     >
                                         {link.label}

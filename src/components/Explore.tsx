@@ -1,7 +1,6 @@
 import abuja from "../assets/images/abuja.png"
 import lagos from "../assets/images/lagos.png"
 import portH from "../assets/images/portH.png"
-import enugu from "../assets/images/enugu.png"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 
